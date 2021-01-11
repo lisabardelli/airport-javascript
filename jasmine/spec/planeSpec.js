@@ -12,4 +12,11 @@ describe ('Plane', function() {
     });
   });
   
+  describe ('allows a plane to land', function(){
+    it ('lands if it is not landed', function(){
+      plane.isLanded = false
+      plane.land
+      expect(plane.isLanded).toBe(true)
+    });
+  })
 });
