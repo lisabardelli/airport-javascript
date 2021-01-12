@@ -2,6 +2,7 @@
 class Airport {
     constructor() {
         this._hangar = []
+        // this.weather = 'sunny'
     }
 
     land_at(plane) {
@@ -10,5 +11,6 @@ class Airport {
     take_off_from(plane) {
         this._hangar.pop(plane);
     }
+    // weather() 
 
 }

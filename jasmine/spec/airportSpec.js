@@ -33,4 +33,11 @@ describe("Airport", function() {
             expect(airport._hangar.length).toBe(0);
         });
     });
+
+    describe('Airport has weather status', function(){
+        it("describes the weather at the airport"), function(){
+            SpyOn("airport", weather).and.returnValue("stormy");
+            expect(airport.weather_report).toBe('stormy');
+        });
+    });
 });
