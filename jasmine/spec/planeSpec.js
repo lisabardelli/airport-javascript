@@ -15,7 +15,6 @@ describe ('Plane', function() {
 // need to do takeoff method first to set landed to false
   describe ('allows a plane to land', function(){
     it ('lands if it is not landed', function(){
-      plane.take_off()
       plane.land()
       expect(plane.isLanded()).toBe(true)
     });
