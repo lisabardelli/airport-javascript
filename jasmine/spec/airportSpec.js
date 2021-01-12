@@ -2,6 +2,7 @@ describe("Airport", function() {
 
     beforeEach(function(){
         airport = new Airport()
+        plane = new Plane()
     });
 
     describe("create an instance of Plane", function(){
@@ -12,7 +13,10 @@ describe("Airport", function() {
 
     describe('Plane can land', function(){
         it ('allows a plane to land', function(){
-            airport.land('plane')
+            airport.land(plane)
+            spyOn(plane, land).and.returnVaue(true)
+
+            expect(plane.landed).toBe(true)
             expect(airport.hangar.length).toBe(1);
         });
     });

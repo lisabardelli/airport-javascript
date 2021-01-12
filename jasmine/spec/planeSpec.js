@@ -8,7 +8,7 @@ describe ('Plane', function() {
 
   describe ('knows whether it is', function() {
     it('landed', function() {
-      expect(plane.isLanded()).toBe(true);
+      expect(plane.landed).toBe(false);
     });
   });
 
@@ -16,7 +16,7 @@ describe ('Plane', function() {
   describe ('allows a plane to land', function(){
     it ('lands if it is not landed', function(){
       plane.land()
-      expect(plane.isLanded()).toBe(true)
+      expect(plane.landed).toBe(true)
     });
   })
 });

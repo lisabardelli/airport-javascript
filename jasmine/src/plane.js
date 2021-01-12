@@ -1,11 +1,7 @@
 class Plane {
 
     constructor() {
-        this.landed = true;
-    }
-
-    isLanded() {
-        return this.landed === true;
+        this.landed = false;
     }
 
     land() {

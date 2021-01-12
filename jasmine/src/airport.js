@@ -6,5 +6,4 @@ class Airport {
     land(plane) {
         this.hangar.push(plane);
     }
-
 }
