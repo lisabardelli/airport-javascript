@@ -15,31 +15,42 @@ describe("Airport", function() {
         });
     });
 
-    describe('Plane can land', function(){
+
+
+    describe('if it is sunny', function(){
+
+        beforeEach(function(){
+            weather.isStormy.and.returnValue(false);
+        });
+        
         it ('allows a plane to land', function(){
             plane.land(airport)
-            airport.land_at(plane)
+            airport.land_at(plane, weather)
             expect(airport._hangar.length).toBe(1);
             expect(airport._hangar).toEqual([plane]);
         });
-    });
-
-    describe('returns false if the weather is sunny', function(){
-        it ("returns false", function(){
-            expect(airport.isStormy()).toBeFalsy();
-  
-        });
-    });
-    describe('Plane can take_off', function(){
         it ("allows a Plane to take off )", function(){
             plane.land(airport)
-            airport.land_at(plane)
+            airport.land_at(plane, weather)
             expect(airport._hangar.length).toBe(1);
             plane.take_off(airport)
-            spyOn(airport, "isStormy").and.returnValue(true)
-            expect(function(){airport.take_off_from();}).toThrowError('Cannot take off because of the stormy weather');
-            expect(airport._hangar.length).toBe(1);
+            airport.take_off_from(plane, weather)
+            expect(airport._hangar.length).toBe(0);
         });
+    });
+
+
+    describe('if it is stormy', function(){
+        beforeEach(function(){
+            weather.isStormy.and.returnValue(true);
+        });
+        it ('does not allow a plane to land', function(){
+            expect(function(){airport.land_at(plane, weather);}).toThrowError('Cannot land because of the stormy weather');
+        });
+        it ("does not allow a Plane to take off )", function(){
+            expect(function(){airport.take_off_from(plane, weather);}).toThrowError('Cannot take off because of the stormy weather');
+        });
+
     });
 
 });
