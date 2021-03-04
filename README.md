@@ -2,7 +2,6 @@
 
 Use Javascript and Jasmine to build a software which controls the flow of planes at an airport focusing on TDD.
 
-Each day I have been pairing with a different person. The result of each pairing session has been push on a separate branch.
 
 
 ## User Stories  
